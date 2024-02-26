@@ -9,7 +9,7 @@ require('dotenv').config();
 require('./config/database')
 
 var indexRouter = require('./routes/index');
-//var flightsRouter = require('./routes/flights'); //need to make this file
+var flightsRouter = require('./routes/flights'); 
 
 var app = express();
 
@@ -22,9 +22,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static('public'));
 
 app.use('/', indexRouter); 
-//app.use('/flights', flightsRouter); need to unmark once routers set up
+app.use('/flights', flightsRouter); 
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

@@ -3,7 +3,8 @@ var router = express.Router();
 
 // Get home page
 router.get('/', function(request, respond, next) {
-    respond.render('index', { title: 'All Flights'});
+   console.log('index router.get triggered')
+   respond.render('flights/index', { title: 'All Flights' });
 });
 
 module.exports = router;

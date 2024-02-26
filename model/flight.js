@@ -17,12 +17,14 @@ const flightSchema = new Schema({
     flightNo: {
         type: Number,
         required: true,
-        min: 10,
+        min: 2,
         max: 9999,
     },
     departs: {
     type: Date,
     default: function() {
-        return new Date(+new Date() + 365*24*60*60*1000)
+       return new Date(+new Date() + 365*24*60*60*1000)
     },    
 }});
+
+module.exports = mongoose.model('Flight', flightSchema);
